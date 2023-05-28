@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,600,700|Work+Sans:400,700,800");
+html {
+  overflow-x: hidden;
+}
+body {
+  font-family: "Lato", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.166667px;
+  line-height: 1.7em;
+  color: #585e64;
+  background-color:rgb(222, 236, 236);
+}
+
+p {
+  color: #42464b;
+  font-size: larger;
+}
+.section {
+  padding: 180px 0px;
+}
+.text-color {
+  color:darkslategray;
+}
+.is-visible,h2{
+  color:#000;
+}
+.navbar{
+  height:150px;
+}
+.nav-link,.NavDropdown{
+  font-size: larger;
+
+}
+.nav-link:hover,.NavDropdown:hover{
+  background-color:rgb(182, 214, 230);
+  color:rgb(54, 128, 218); 
+}
+
+
+.footer {
+  padding: 20px 0px;
+  background: #000;
+  height: 100px;
+}
+
+.footer-widget a {
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: capitalize;
+}
+.footer-widget a:hover {
+  color: #f44336;
+}
+.login-container {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-form {
+    max-width: 400px;
+    width: 90%;
+    background-color: transparent;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  .login-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .login-form input {
+    margin-bottom: 1rem;
+  }
+  
+  .forgot-password {
+    font-size: 0.8rem;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 0.5rem;
+  }
+  
+  .login-button {
+    margin-top: 2rem;
+    display: block;
+    margin: 2rem auto 0;
+    width: 50%;
+  }

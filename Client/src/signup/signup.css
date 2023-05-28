@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,600,700|Work+Sans:400,700,800");
+html {
+  overflow-x: hidden;
+}
+body {
+  font-family: "Lato", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.166667px;
+  line-height: 1.7em;
+  color: #585e64;
+  background-color:rgb(222, 236, 236);
+} 
+p {
+  color: #42464b;
+  font-size: larger;
+  text-align: center;
+}
+h2{
+  padding-top: 150px;
+  text-align: center;
+}
+.section {
+  padding: 10px 0px;
+  height: 700px;
+}
+.text-color {
+  color:darkslategray;
+}
+.is-visible,h2{
+  color:#000;
+}
+.navbar{
+  height:150px;
+}
+.nav-link,.NavDropdown{
+  font-size: larger;
+
+}
+.nav-link:hover,.NavDropdown:hover{
+  background-color:rgb(182, 214, 230);
+  color:rgb(54, 128, 218); 
+}
+
+.footer {
+  padding: 20px 0px;
+  background: #000;
+  height: 100px;
+}
+
+.footer-widget a {
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: capitalize;
+}
+
+.mb-0{
+  color:#818385;
+}
+
