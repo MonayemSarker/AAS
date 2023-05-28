@@ -49,7 +49,7 @@ export function StudentDashboard() {
         <>
             {
                 authState && (
-                    <div className="page" style={{ backgroundImage: `url(${background1})` }} >
+                    <div className="page">
 
 
                       <MyNav/>
@@ -121,9 +121,9 @@ export function StudentDashboard() {
                                                             />
                                                             <div class="overlay-box">
                                                                 <div class="overlay-inner">
-                                                                    <a class="overlay-content" href="portfolio-single.html">
+                                                                <Link class="overlay-content" to={`/${email}/report`}>
                                                                         <h5 class="mb-0">Reports</h5>
-                                                                    </a>
+                                                                    </Link>
                                                                 </div>
                                                             </div>
                                                         </div>

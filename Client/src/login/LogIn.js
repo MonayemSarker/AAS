@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import 'aos/dist/aos.css';
-import { Modal, Form, Button, Container} from 'react-bootstrap';
+import { Modal, Form, Button, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import background1 from '../background1.jpg';
 import './LogIn.css';
@@ -50,19 +50,28 @@ export function LogIn() {
               toast.error("Wrong Email or Password");
             } else {
               console.log(response.data);
-              if(response.data.verificationStatus==1)       
-                {navigate(`/${response.data.userType}/${response.data.email}`);}
-                else{
-                  toast.error("Not Verified")
-                }
+              if (response.data.verificationStatus == 1) { navigate(`/${response.data.userType}/${response.data.email}`); }
+              else {
+                toast.error("Not Verified")
+              }
             }
           });
         }
       });
-      Axios.post(`http://localhost:12280/notification/post`).then(response => {
+    Axios.post(`http://localhost:12280/notification/post`).then(response => {
       toast.error(response);
       console.log("hi");
-  });
+    });
+    Axios.post(`http://localhost:12280/report/generate`).then(response => {
+      toast.error(response);
+      console.log("report genarated");
+    });
+    Axios.put(`http://localhost:12280/report/update`).then(response => {
+      toast.error(response);
+      console.log("report updated");
+    });
+
+
   }
   useEffect(() => {
     localStorage.removeItem("accessToken");
@@ -81,6 +90,10 @@ export function LogIn() {
 
 
   const sendOTP = async (event) => {
+    if (email.trim() === '') {
+      toast.error('Please enter your email');
+      return;
+    }
     event.preventDefault();
     console.log(email1)
     const res = await Axios.post('http://localhost:12280/user/generate-otp2', { email1 });
@@ -90,6 +103,10 @@ export function LogIn() {
   };
   const [showModal2, setShowModal2] = useState(false);
   const verifyOTP = async (event) => {
+    if (otp.trim() === '') {
+      toast.error('Please enter your email');
+      return;
+    }
 
     event.preventDefault();
     const res = await Axios.post('http://localhost:12280/user/verify-otp2', { email1, otp });
@@ -106,7 +123,7 @@ export function LogIn() {
 
   const handleForgotPasswordConfirm = () => {
     console.log("hi")
-    
+
     Axios.post('http://localhost:12280/user/change-pass', {
       email1: email1,
       newPassword: newPassword
@@ -118,13 +135,13 @@ export function LogIn() {
   };
   return (
     <div className="page" style={{ backgroundImage: `url(${background1})` }} >
-      <MyNav/>
+      <MyNav />
       <Container className="login-container">
         <ToastContainer />
-        <Form className="login-form">
+        <Form className="login-form" >
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
@@ -219,7 +236,7 @@ export function LogIn() {
         </Modal.Body>
 
       </Modal>
-     
+
     </div>
   );
 }

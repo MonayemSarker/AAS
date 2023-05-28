@@ -58,7 +58,7 @@ function MyNav() {
       {
         authState && (
           <section class="okay">
-            <Navbar collapseOnSelect expand="lg" className="main-nav" id="navbar" >
+            <Navbar >
               <Container>
                 <Navbar.Brand as={Link} to={`/${adminUserType}/${email1}`}>
                   <img
@@ -70,10 +70,10 @@ function MyNav() {
                 </Navbar.Brand>
                 <Nav.Link as={Link} to={`/${adminUserType}/${email1}`} className="active">Dashboard</Nav.Link>
 
-                <Navbar.Collapse id="navbarsExample09" className="justify-content-end">
+                <Navbar.Collapse  className="justify-content-end">
                  
                   <Nav className="ml-auto">
-                    <NavDropdown title="Settings" id="dropdown02">
+                    <NavDropdown title="Options" id="dropdown02">
                       <NavDropdown.Item as={Link} to={`/${email1}/ResetPassword`}>
                         <img src={ResetPass} height="30" width="40" /> Reset Password
                       </NavDropdown.Item>

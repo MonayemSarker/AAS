@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import background1 from '../../background1.jpg';
 import 'react-bootstrap-carousel/dist/react-bootstrap-carousel.css';
 import { useState } from 'react';
-import './studentDashboard.css';
 import Axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import MyNav from '../NavBar';
@@ -49,7 +48,7 @@ export function StudentProfile() {
         <>
             {
                 authState && (
-                    <div className="page" style={{ backgroundImage: `url(${background1})` }} >
+                    <div className="page">
                         <MyNav />
                         <section>
 

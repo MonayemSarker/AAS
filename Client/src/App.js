@@ -9,6 +9,8 @@ import AdminProfile from './Dashboard/Admin/adminProfile';
 import Notification from "./Dashboard/notification";
 import DirectorDashboard from './Dashboard/Director/directorDashboard';
 import TeacherDashboard from './Dashboard/Teacher/teacherDashboard';
+import TeacherReport from './Dashboard/Teacher/report';
+import StudentReport from './Dashboard/Student/report';
 import StudentDashboard from './Dashboard/Student/studentDashboard';
 import ResetPassword from './Dashboard/ResetPassword';
 import AdminNoticeManagement from './Dashboard/Admin/manageNotice';
@@ -23,6 +25,7 @@ import StudentNotice from "./Dashboard/Student/notice";
 import ManageCourse from "./Dashboard/Admin/manageCourse";
 import ManageUser from "./Dashboard/Admin/manageUser";
 import ManageNotice from './Dashboard/Director/noticeManagement';
+import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
@@ -46,6 +49,7 @@ function App() {
           <Route path="/Teacher/:email" element={< TeacherDashboard />} />
           <Route path="/Teacher/:email/profile" element={<TeacherProfile />} />
           <Route path="/Teacher/:email1/EditInfo" element={<TeacherEditInfo />} />
+          <Route path="/Teacher/:email/report" element={<TeacherReport />} />
 
           <Route path="/Director/:email" element={< DirectorDashboard />} />
           <Route path="/Director/:email/profile" element={<DirectorProfile />} />
@@ -56,13 +60,14 @@ function App() {
           <Route path="/Student/:email/profile" element={<StudentProfile />} />
           <Route path="/Student/:email1/EditInfo" element={<StudentEditInfo />} />
           <Route path="/Student/:email/receiveNotice" element={<StudentNotice />} />
+          <Route path="/:email/report" element={<StudentReport />} />
 
           <Route path="/:email/notification" element={<Notification />} />
           <Route path="/:email/ResetPassword" element={<ResetPassword />} />
         </Routes>
 
       </BrowserRouter>
-      <section class="footer" style={{ position: "fixed", bottom: "0", width: "100%" }}>
+      <section class="footer" >
         <div >
           
             <div class="col-lg-6">

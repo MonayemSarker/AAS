@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import background1 from '../../background1.jpg';
 import 'react-bootstrap-carousel/dist/react-bootstrap-carousel.css';
 import { useState } from 'react';
-import './adminDashboard.css';
 import Axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -28,15 +27,21 @@ export function AdminNoticeManagement() {
   }, [])
   const handleSendNotice = (event) => {
     event.preventDefault();
-
+    if (notice.trim() === '') {
+      toast.error('Please wite the notice');
+      return;
+    }
     const newNotice = {
       regNumber,
       notice
     };
     Axios.post('http://localhost:12280/notice/admin', newNotice)
       .then((response) => {
-        console.log(response.data)
-        toast.success(`Notice Sent to student : ${regNumber}`);
+        if (regNumber.trim() === '') {
+          toast.error('Student not found');
+          return;
+        }
+        toast.success(`Notice Sent to student having registraion number ${regNumber}`);
       }).catch((error) => {
         toast.error('Error occurred');
       })
@@ -71,7 +76,7 @@ export function AdminNoticeManagement() {
     <>
       {
         authState && (
-          <div className="page" style={{ backgroundImage: `url(${background1})` }} >
+          <div className="page" >
             <MyNav />
             <section style={{ marginTop: '70px', height: '200px', overflowY: 'auto' }}>
               <table className="table table-bordered text-center" style={{ width: '80%', margin: "auto" }}>

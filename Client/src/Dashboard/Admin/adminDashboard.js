@@ -15,11 +15,15 @@ import './adminDashboard.css';
 import Axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import MyNav from '../NavBar'
+import { Button } from 'react-bootstrap';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 export function AdminDashboard() {
-  
-  ;
+
+  const handleReport = () => {
+    window.open('http://localhost:12280/report/get', '_blank');
+  };
   const [adminInformation, setAdminInformation] = useState({});
   useEffect(() => {
     Axios.get(`http://localhost:12280/admin/${email}`).then((response) => {
@@ -31,7 +35,7 @@ export function AdminDashboard() {
   useEffect(() => {
     Axios.get(`http://localhost:12280/student/all`).then((response) => {
       setStudentInformation(response.data);
-   //   console.log(response.data);
+      //   console.log(response.data);
     });
   }, [])
 
@@ -49,7 +53,7 @@ export function AdminDashboard() {
   //       });
   //   });
   // };
-  
+
   const [adminUserType, setAdminUserType] = useState("");
   const { email } = useParams();
   const [authState, setAuthState] = useState(false);
@@ -79,8 +83,8 @@ export function AdminDashboard() {
     <>
       {
         authState && (
-          <div className="page" style={{ backgroundImage: `url(${background1})` }} >
-            <MyNav /> 
+          <div className="page">
+            <MyNav />
             {/* <Button variant="secondary" onClick={() => handleGetNotification()} >Cancel</Button> */}
             <div class="profileclass"> <h5> Profile </h5>
               <section>
@@ -117,7 +121,7 @@ export function AdminDashboard() {
 
 
                       <div class="row shuffle-wrapper portfolio-gallery">
-                        <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;design&quot;,&quot;illustration&quot;]">
+                        <div class="col-lg-7 col-6 mb-4 shuffle-item" data-groups="[&quot;design&quot;,&quot;illustration&quot;]">
                           <div class="position-relative inner-box" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <div class="image position-relative " style={{ height: '250px', width: '250px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
                               <img
@@ -159,27 +163,8 @@ export function AdminDashboard() {
                             </div>
                           </div>
                         </div>
-                        <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;illustration&quot;]">
-                          <div class="position-relative inner-box" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <div class="image position-relative " style={{ height: '250px', width: '250px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
-                              <img
-                                src={deleteRecording}
-                                class="img-fluid w-100 d-block"
-                                alt="Logo"
 
 
-                              />
-                              <div class="overlay-box">
-                                <div class="overlay-inner">
-                                  <a class="overlay-content" href="portfolio-single.html">
-                                    <h5 class="mb-0">Delete Recordings </h5>
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                       
 
                       </div>
                     </div>
@@ -224,9 +209,9 @@ export function AdminDashboard() {
                               />
                               <div class="overlay-box">
                                 <div class="overlay-inner">
-                                  <a class="overlay-content" href="portfolio-single.html">
-                                    <h5 class="mb-0">Reports</h5>
-                                  </a>
+
+                                  <Button onClick={handleReport} style={{ backgroundColor: 'white', color: 'black' }}>Reports</Button>
+
                                 </div>
                               </div>
                             </div>
@@ -239,7 +224,7 @@ export function AdminDashboard() {
                       </div>
                     </div>
                   </Carousel.Item>
-                 
+
                 </Carousel>
 
               </section>

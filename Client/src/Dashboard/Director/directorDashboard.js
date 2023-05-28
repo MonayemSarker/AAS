@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import background1 from '../../background1.jpg';
 import profile from '../../profile.jpg';
 import notice from '../../notice.jpg';
+
 import AppApp from '../../ApplicationApproval.png';
 import report from '../../report.jpg';
 import { Carousel } from 'react-bootstrap';
@@ -15,6 +16,8 @@ import Axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import { useParams, Link } from 'react-router-dom';
 import MyNav from '../NavBar'
+
+
 export function DirectorDashboard() {
     const [showModal, setShowModal] = useState(false);
 
@@ -30,6 +33,10 @@ export function DirectorDashboard() {
             // console.log(response.data);
         });
     }, [])
+
+    const handleReport = () => {
+        window.open('http://localhost:12280/report/get', '_blank');
+    };
 
     const [attendanceInformation, setAttendanceInformation] = useState([]);
     const handleApproval = async (index) => {
@@ -72,7 +79,7 @@ export function DirectorDashboard() {
         <>
             {
                 authState && (
-                    <div className="page" style={{ backgroundImage: `url(${background1})` }} >
+                    <div className="page" >
 
 
                         <MyNav />
@@ -184,9 +191,7 @@ export function DirectorDashboard() {
                                                             />
                                                             <div class="overlay-box">
                                                                 <div class="overlay-inner">
-                                                                    <a class="overlay-content" href="portfolio-single.html">
-                                                                        <h5 class="mb-0">Reports</h5>
-                                                                    </a>
+                                                                    <Button onClick={handleReport} style={{ backgroundColor: 'white', color: 'black' }} >Reports</Button>
                                                                 </div>
                                                             </div>
                                                         </div>

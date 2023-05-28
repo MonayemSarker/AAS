@@ -15,7 +15,7 @@ class Attendance(BaseModel):
     
 app = FastAPI()
 database = Database("mysql+aiomysql://root:Pass_Word123@127.0.0.1:3306/aas")
-origins = ["http://localhost:3000"]  # Replace with your client's origin
+origins = ["http://localhost:3000"]  
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],

@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import background1 from '../../background1.jpg';
 import 'react-bootstrap-carousel/dist/react-bootstrap-carousel.css';
 import { useState } from 'react';
-import './directorDashboard.css';
 import Axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -16,7 +15,10 @@ export function ManageNotice() {
     const [notice, setNotice] = useState("");
 
     const handleSubmit = (event) => {
-        
+        if (notice.trim() === '') {
+            toast.error('Please wite the notice');
+            return;
+          }
           Axios.post(`http://localhost:12280/notice/director`, {notice})
             .then(response => {
               toast.success("Notice Sent!");
@@ -55,7 +57,7 @@ export function ManageNotice() {
         <>
             {
                 authState && (
-                    <div className="page" style={{ backgroundImage: `url(${background1})` }} >
+                    <div className="page">
                         <MyNav/>
                         <section>
                         <div style={{ width: "70%", margin: "auto", height: "750px", marginTop: "10rem" }}>

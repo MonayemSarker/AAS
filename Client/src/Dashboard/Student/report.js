@@ -9,11 +9,11 @@ import { useParams, Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import MyNav from '../NavBar';
 
-export function StudentNotice() {
-  const [noticeInformation, setNoticeInformation] = useState([]);
+export function StudentReport() {
+  const [reportInformation, setReportInformation] = useState([]);
   useEffect(() => {
-    Axios.get(`http://localhost:12280/notice/${email}/get`).then((response) => {
-      setNoticeInformation(response.data);
+    Axios.get(`http://localhost:12280/report/${email}/student`).then((response) => {
+      setReportInformation(response.data);
     });
   }, [])
 
@@ -45,22 +45,24 @@ export function StudentNotice() {
         <>
             {
                 authState && ( 
-                    <div className="page">
+                    <div className="page"  >
                        <MyNav/>
                         <section>
                         <section style={{ marginTop: '70px', height: '300px', overflowY: 'auto' }}>
               <table className="table table-bordered text-center" style={{ width: '80%', margin: "auto" }}>
                 <thead className="bg-primary text-white">
                   <tr>
-                    <th>Notice</th>
-                    <th>Date</th>
+                 
+        <th>Course Code</th>
+        <th>Percentage</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {noticeInformation.map((info) => (
+                  {reportInformation.map((info) => (
                     <tr key={info.id}>
-                      <td>{info.notice}</td>
-                      <td>{info.createdAt}</td>
+                    
+              <td>{info.courseCode}</td>
+              <td>{info.percentage}%</td>
                     </tr>
                   ))}
                 </tbody>
@@ -76,4 +78,4 @@ export function StudentNotice() {
     );
 
 
-} export default StudentNotice;
+} export default StudentReport;

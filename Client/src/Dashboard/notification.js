@@ -63,7 +63,7 @@ export function Notification() {
     <>
       {
         authState && (
-          <div className="page" style={{ backgroundImage: `url(${background1})` }} >
+          <div className="page" >
             <MyNav />
             <div style={{ marginTop:'70px' ,height: '400px', overflowY: 'auto' }}>
               <table className="table table-bordered text-center" style={{ width: '80%', margin: "auto" }}>

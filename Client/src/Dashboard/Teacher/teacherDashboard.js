@@ -10,9 +10,9 @@ import report from '../../report.jpg';
 import { Carousel } from 'react-bootstrap';
 import 'react-bootstrap-carousel/dist/react-bootstrap-carousel.css';
 import { useState } from 'react';
-import './teacherDashboard.css';
 import { toast, ToastContainer } from 'react-toastify';
 import { useParams, Link } from 'react-router-dom';
+import './teacherDashboard.css'
 import axios from 'axios';
 import MyNav from '../NavBar.js'
 
@@ -32,6 +32,10 @@ export function TeacherDashboard() {
 
 
     const handleEditAttendance = (e) => {
+        if (dateEdit.trim() === '' || courseCodeEdit.trim() === '' ||regNumberEdit.trim() === '' ||statusEdit.trim() === '') {
+            toast.error('Please give informations properly');
+            return;
+          }
         const editAttendanceInfo = {
             dateEdit,
             courseCodeEdit,
@@ -69,6 +73,11 @@ export function TeacherDashboard() {
     };
 
     const handleStart = (event) => {
+        if (courseCode1.trim() === '' ) {
+            toast.error('Please give informations properly');
+            return;
+          }
+        
         const courseInfo = {
             courseCode1
         }
@@ -178,7 +187,7 @@ export function TeacherDashboard() {
             {
                 authState && (
 
-                    <div className="page" style={{ backgroundImage: `url(${background1})` }} >
+                    <div className="page">
 
                         <MyNav />
                         <div class="profileclass"> <h5> Profile </h5>
@@ -229,9 +238,9 @@ export function TeacherDashboard() {
                                                             />
                                                             <div class="overlay-box">
                                                                 <div class="overlay-inner">
-                                                                    <a class="overlay-content" href="portfolio-single.html">
-                                                                        <h5 class="mb-0 ">Reports</h5>
-                                                                    </a>
+                                                                <Link class="overlay-content"to={`/${adminUserType}/${email}/report`}>
+                                                                 <h5 class="mb-0">Reports</h5>
+                                                                 </Link>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -416,7 +425,7 @@ export function TeacherDashboard() {
                                     </Modal.Body>
                                     <Modal.Footer>
                                         <Button variant="secondary" onClick={() => setShowModal1(false)}>Cancel</Button>
-                                        <Button variant="primary" onClick={handleEditAttendance} disabled={!courseCodeEdit} >Done</Button>
+                                        <Button variant="primary" onClick={handleEditAttendance}  >Done</Button>
                                     </Modal.Footer>
                                 </Modal>
 

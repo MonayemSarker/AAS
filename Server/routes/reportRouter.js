@@ -5,7 +5,7 @@ router.post('/generate', reportController.createReport);
 router.put('/update', reportController.updateReports);
 router.get('/:email/student', reportController.getReportsStudent);
 router.get('/:email/teacher', reportController.getReportsTeacher);
-
+router.get('/get', reportController.getReport);
 
 
 

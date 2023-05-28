@@ -69,7 +69,7 @@ export function AdminResetPassword() {
         <>
             {
                 authState && (
-                    <div className="page" style={{ backgroundImage: `url(${background1})` }} >
+                    <div className="page">
 
 
                        <MyNav/>

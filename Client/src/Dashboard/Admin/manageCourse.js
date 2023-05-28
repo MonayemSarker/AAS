@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import background1 from '../../background1.jpg';
 import 'react-bootstrap-carousel/dist/react-bootstrap-carousel.css';
 import { useState } from 'react';
-import './adminDashboard.css';
 import Axios from 'axios';
 import { useParams} from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -21,6 +20,10 @@ export function ManageCourse() {
 
   const handleAddCourse = (event) => {
     event.preventDefault();
+    if (courseName.trim() === '' || courseCode.trim() === '' ||semester.trim() === '') {
+      toast.error('Please give informations properly');
+      return;
+    }
     const newCourse = {
       courseName,
       courseCode,
@@ -58,8 +61,11 @@ export function ManageCourse() {
     };
     Axios.post('http://localhost:12280/teacherCourse/add', newCourseTeacher)
       .then((response) => {
-        console.log(response.data)
-        toast.success("Teacher Added");
+        if (response.data.error === 'Teacher or Course invalid') {
+          toast.error(response.data.error);
+        }
+        else{toast.success("Teacher added");}
+        
       }).catch((error) => {
         toast.error('Error occurred');
       })
@@ -113,7 +119,7 @@ export function ManageCourse() {
     <>
       {
         authState && (
-          <div className="page" style={{ backgroundImage: `url(${background1})` }} >
+          <div className="page" >
             <MyNav/>
 
             

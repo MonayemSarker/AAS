@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import background1 from '../../background1.jpg';
 import 'react-bootstrap-carousel/dist/react-bootstrap-carousel.css';
 import { useState } from 'react';
-import './adminDashboard.css';
 import Axios from 'axios';
 import { useParams } from 'react-router-dom';
 import MyNav from '../NavBar'
@@ -48,7 +47,7 @@ export function AdminProfile() {
         <>
             {
                 authState && (
-                    <div className="page" style={{ backgroundImage: `url(${background1})` }} >
+                    <div className="page">
                             <MyNav /> 
 
                         <section>
@@ -56,7 +55,7 @@ export function AdminProfile() {
                             <div className="card mb-3 mx-auto" >
                                 <div className="row no-gutters">
                                     
-                                    <div className="col-md-9 " >
+                                    <div className="col-md-13 " >
                                         <div className="card-body">
                                             <p className="card-title"> <b><strong>Name:</strong></b> {adminInformation.name}</p>
                                             <p className="card-text-"> <b><strong>Email:</strong></b>  {adminInformation.UserEmail}</p>

@@ -27,6 +27,10 @@ export function Student() {
   const [otpVerified, setOtpVerified] = useState(false);
 
   const handleSendOtp = async (event) => {
+    if (email.trim() === '') {
+      toast.error('Please enter your email');
+      return;
+    }
     event.preventDefault();
     const res = await Axios.post('http://localhost:12280/user/generate-otp', { email });
 
@@ -34,6 +38,10 @@ export function Student() {
     setOtpSent(true);
   };
   const handleVerifyOtp = async (event) => {
+    if (otp.trim() === '') {
+      toast.error('Please enter the OTP');
+      return;
+    }
     event.preventDefault();
     const res = await Axios.post('http://localhost:12280/user/verify-otp', { email, otp });
     if (res.data.message == 'Invalid OTP') {
