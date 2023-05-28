@@ -58,6 +58,9 @@ app.use("/approval", routerApproval);
 const routerNotice = require("./routes/noticeRoute");
 app.use("/notice", routerNotice);
 
+const routerReport = require("./routes/reportRouter");
+app.use("/report", routerReport);
+
 app.use(express.static('images'));
 
 

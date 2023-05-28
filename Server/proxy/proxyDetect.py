@@ -103,8 +103,8 @@ async def scanner_attendance(request: Attendance):
         #     "receiver": teacher_email
         # }
         notification_query = f"""
-            INSERT INTO Notifications (type, receiver, updatedAt)
-            VALUES ('Proxy Detected Student: {reg_number} Course: {code}', '{teacher_email}','{formatted_date}');
+            INSERT INTO Notifications (type, receiver, createdAt, updatedAt)
+            VALUES ('Proxy Detected Student: {reg_number} Course: {code}', '{teacher_email}','{formatted_date}','{formatted_date}');
         """    
         print(notification_query)
         notification_data = await database.execute(notification_query)
@@ -145,7 +145,9 @@ def faceMatching(path):
 
 def convertStreamToFrame(path):
     try:
-        vcap = cv2.VideoCapture("http://192.168.0.102:4747/video")
+        # vcap = cv2.VideoCapture("http://192.168.0.102:4747/video")
+        # vcap = cv2.VideoCapture("http://10.100.101.93:4747/video")
+        vcap = cv2.VideoCapture("http://192.168.171.93:4747/video")
        
         ret, frame = vcap.read()
         cv2.imwrite("./images/img.jpg", frame)

@@ -28,7 +28,7 @@ const startAttendance = async (req, res) => {
 
                 let studentCourse = await db.Attendance.create(info);
                 studentCoursesData.push(studentCourse);
-
+                502
             }
             res.json(studentCoursesData);
         } else {
@@ -83,7 +83,7 @@ const manualAttendance = async (req, res) => {
                 where: {
                     createdAt: formattedDate, //genjam ekta hobe eikhane sure
                     StudentCourseId: studentCourseId.id,
-                }
+                },
             })
 
             res.json(countAttendance);
@@ -212,7 +212,9 @@ const editAttendance = async (req, res) => {
             where: {
                 StudentCourseId: studentCourseId.id,
                 createdAt: date,
-            }
+            },
+            order: [['id', 'DESC']],
+            limit: 1,
         })
 
         res.json(attendance);
