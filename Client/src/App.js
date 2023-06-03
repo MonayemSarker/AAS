@@ -69,12 +69,12 @@ function App() {
       </BrowserRouter>
       <section class="footer" >
         <div >
-          
-            <div class="col-lg-6">
-              <p >Copyrights © 1222 | 1228 </p>
-            </div>
+
+          <div class="col-lg-6">
+            <p >© Copyrights 1222 | 1228 </p>
           </div>
-        
+        </div>
+
       </section>
     </div>
   );

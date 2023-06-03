@@ -75,7 +75,7 @@ const addUser = async (req, res) => {
 //delete user
 const deleteUser = async (req, res) => {
     const emailRemoved = req.body.emailRemoved;
-   // console.log(req.body.emailRemoved);
+    // console.log(req.body.emailRemoved);
     const user = await db.User.findOne({ where: { email: emailRemoved }, include: [db.Teacher, db.Student] });
     if (user) {
         // delete associated records
@@ -229,8 +229,8 @@ const sendOTP = async (req, res) => {
     const { email } = req.body;
     console.log(email);
     const otp = otpGenerator.generate(6, { digits: true, alphabets: false, upperCase: false, specialChars: false });
-    console.log(otp); // Add this line to see the generated OTP
-    otpMap.set(email, otp); // Store the OTP in the map
+    console.log(otp);
+    otpMap.set(email, otp);
     const mailOptions = {
         from: 'automatedattendancesystem2228@gmail.com',
         to: email,
@@ -274,7 +274,7 @@ const sendOTP2 = async (req, res) => {
     const { email1 } = req.body;
     console.log(email1);
     const otp = otpGenerator.generate(6, { digits: true, alphabets: false, upperCase: false, specialChars: false });
-    // console.log(Generated OTP for ${email}: ${otp}); // Add this line to see the generated OTP
+    // console.log(Generated OTP for ${email}: ${otp});
     otpMap.set(email1, otp); // Store the OTP in the map
     const mailOptions = {
         from: 'automatedattendancesystem2228@gmail.com',

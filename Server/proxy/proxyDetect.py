@@ -147,7 +147,7 @@ def convertStreamToFrame(path):
     try:
         # vcap = cv2.VideoCapture("http://192.168.0.102:4747/video")
         # vcap = cv2.VideoCapture("http://10.100.101.93:4747/video")
-        vcap = cv2.VideoCapture("http://192.168.171.93:4747/video")
+        vcap = cv2.VideoCapture("http://192.168.107.37:4747/video")
        
         ret, frame = vcap.read()
         cv2.imwrite("./images/img.jpg", frame)

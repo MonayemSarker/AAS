@@ -90,7 +90,7 @@ export function LogIn() {
 
 
   const sendOTP = async (event) => {
-    if (email.trim() === '') {
+    if (email1.trim() === '') {
       toast.error('Please enter your email');
       return;
     }

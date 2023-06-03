@@ -1,27 +1,39 @@
  @import url("https://fonts.googleapis.com/css?family=Lato:400,600,700|Work+Sans:400,700,800");
-html {
-  overflow-x: hidden;
-}
-p {
-  color: #42464b;
-  font-size: larger;
-  text-align: center;
-}
-h2{
-  padding-top: 150px;
-  text-align: center;
-}
-.section {
-  padding: 10px 0px;
-  height: 700px;
-}
-.text-color {
-  color:darkslategray;
-}
-.is-visible,h2{
-  color:#000;
-}
 
-.mb-0{
-  color:#818385;
-}
+ html {
+   overflow-x: hidden;
+ }
+
+ p {
+   color: #42464b;
+   font-size: larger;
+   text-align: center;
+ }
+
+ h2 {
+   padding-top: 50px;
+   text-align: center;
+ }
+
+ .section {
+   padding: 0px 0px;
+   margin: none;
+   height: 700px;
+ }
+
+ b {
+   color: darkslategray;
+ }
+
+ .is-visible,
+ h2 {
+   color: #000;
+ }
+
+ .mb-0 {
+   color: #818385;
+ }
+
+ .mb-2 {
+   text-align: center;
+ }
